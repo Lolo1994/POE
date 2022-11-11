@@ -1,14 +1,15 @@
-﻿@model IEnumerable<Task_2.Models.Report>
+﻿@model dynamic
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>View</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<h2>Totals</h2>
 <table class="table">
     <thead>
         <tr>
@@ -23,7 +24,7 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (Report item in Model.Report) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.totalMonetaryDonationsReceived)
@@ -34,5 +35,104 @@
             
         </tr>
 }
+    </tbody>
+</table>
+<h2>Money Donations</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Donation Amount
+            </th>
+            <th>
+                Date Received
+            </th>
+            <th>
+               DonorName
+            </th>
+            <th>
+                Anonymous
+            </th>
+            <th>
+             Disaster Name
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (MoneyDonations item  in Model.MoneyDonations) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.donationAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateReceived)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.donorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isAnonymous)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.disasteType)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<h2>Goods Donations</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Item Name
+            </th>
+            <th>
+                Date Received
+            </th>
+            <th>
+                Number of Items
+            </th>
+            <th>
+                Item Type
+            </th>
+            <th>
+                Anonymous
+            </th>
+            <th>
+                Disaster
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (GoodsDonations item in Model.GoodsDonations)
+        {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.itemName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.dateReceived)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.itemNumber)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.itemType)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.isAnonymous)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.disasteType)
+    </td>
+    <td>
+        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+    </td>
+</tr>}
     </tbody>
 </table>
