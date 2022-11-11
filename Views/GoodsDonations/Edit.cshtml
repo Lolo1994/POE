@@ -1,0 +1,59 @@
+﻿@model Task_2.Models.GoodsDonations
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>GoodsDonations</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="itemName" class="control-label"></label>
+                <input asp-for="itemName" class="form-control" />
+                <span asp-validation-for="itemName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dateReceived" class="control-label"></label>
+                <input asp-for="dateReceived" class="form-control" />
+                <span asp-validation-for="dateReceived" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="itemNumber" class="control-label"></label>
+                <input asp-for="itemNumber" class="form-control" />
+                <span asp-validation-for="itemNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="itemType" class="control-label"></label>
+                <select asp-for="itemType" asp-items="@ViewBag.listofitems"></select>
+                <span asp-validation-for="itemType" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="isAnonymous" /> @Html.DisplayNameFor(model => model.isAnonymous)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="disasteType" class="control-label"></label>
+                <select asp-for="disasteType" asp-items="@ViewBag.disastertypes"></select>
+                <span asp-validation-for="disasteType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

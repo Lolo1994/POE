@@ -1,0 +1,54 @@
+﻿@model Task_2.Models.GoodsDonations
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>GoodsDonations</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.itemName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.itemName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dateReceived)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dateReceived)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.itemNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.itemNumber)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.itemType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.itemType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.isAnonymous)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.isAnonymous)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.disasteType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.disasteType)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
