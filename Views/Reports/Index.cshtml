@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Task_2.Models.Report>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Total monetary donations received
+            </th>
+
+            <th>
+                Total number of goods received
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.totalMonetaryDonationsReceived)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.totalNumberOfGoodsReceived)
+            </td>
+            
+        </tr>
+}
+    </tbody>
+</table>

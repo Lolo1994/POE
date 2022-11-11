@@ -19,6 +19,7 @@ namespace Task_2.Data
         public DbSet<Task_2.Models.GoodsCategories> GoodsCategories { get; set; }
         public DbSet<Task_2.Models.DiasterAllocation> DiasterAllocation { get; set; }
         public DbSet<Task_2.Models.GoodsAllocation> GoodsAllocation { get; set; }
+        public DbSet<Task_2.Models.Report> Report { get; set; }
        // public DbSet<Task_2.BudgetAllocation> BudgetAllocation { get; set; }
     }
 }
