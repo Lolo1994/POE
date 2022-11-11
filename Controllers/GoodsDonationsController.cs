@@ -56,22 +56,22 @@ namespace Task_2.Controllers
             GoodsCategories gc = new GoodsCategories();
 
             var li = new SelectList(_context.GoodsCategories.OrderBy(l => l.goodsCategory)
-                .ToDictionary(us => us.id, us => us.goodsCategory), "Key", "Value");
+                .ToDictionary(us => us.id, us => us.goodsCategory), "Value", "Value");
 
             var disaster = new SelectList(_context.DisasterType.OrderBy(l => l.disasterType)
-               .ToDictionary(us => us.Id, us => us.disasterType), "Key", "Value");
+               .ToDictionary(us => us.Id, us => us.disasterType), "Value", "Value");
 
 
-
+           
 
 
             //List<DisasterType> disaster = new List<DisasterType>();
             //List<GoodsCategories> li = new List<GoodsCategories>();
-            
-            
 
-           // li = _context.GoodsCategories.ToList();
-           //disaster = _context.DisasterType.ToList();
+
+
+            // li = _context.GoodsCategories.ToList();
+            //disaster = _context.DisasterType.ToList();
 
             ViewBag.listofitems = li;
             ViewBag.disastertypes = disaster;

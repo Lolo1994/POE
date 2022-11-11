@@ -46,8 +46,8 @@ namespace Task_2.Controllers
         // GET: GoodsAllocations/Create
         public IActionResult Create()
         {
-            List<DisasterType> disaster = new List<DisasterType>();       
-            disaster = _context.DisasterType.ToList();
+            var disaster = new SelectList(_context.DisasterType.OrderBy(l => l.disasterType)
+            .ToDictionary(us => us.Id, us => us.disasterType), "Value", "Value");
             ViewBag.disastertypes = disaster;
 
             return View();
@@ -72,8 +72,8 @@ namespace Task_2.Controllers
         // GET: GoodsAllocations/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            List<DisasterType> disaster = new List<DisasterType>();
-            disaster = _context.DisasterType.ToList();
+            var disaster = new SelectList(_context.DisasterType.OrderBy(l => l.disasterType)
+            .ToDictionary(us => us.Id, us => us.disasterType), "Value", "Value");
             ViewBag.disastertypes = disaster;
 
             if (id == null)

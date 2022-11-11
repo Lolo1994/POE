@@ -48,10 +48,9 @@ namespace Task_2.Controllers
         [Authorize]
         public IActionResult Create()
         {
-            DisasterType dt = new DisasterType();
             var disaster = new SelectList(_context.DisasterType.OrderBy(l => l.disasterType)
-               .ToDictionary(us => us.Id, us => us.disasterType), "Value", "Value");
-           ViewBag.disastertypes = disaster;
+            .ToDictionary(us => us.Id, us => us.disasterType), "Value", "Value");
+            ViewBag.disastertypes = disaster;
             return View();
         }
 
@@ -75,9 +74,8 @@ namespace Task_2.Controllers
         [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
-            DisasterType dt = new DisasterType();
             var disaster = new SelectList(_context.DisasterType.OrderBy(l => l.disasterType)
-               .ToDictionary(us => us.Id, us => us.disasterType), "Value", "Value");
+             .ToDictionary(us => us.Id, us => us.disasterType), "Value", "Value");
             ViewBag.disastertypes = disaster;
             if (id == null)
             {
