@@ -9,7 +9,6 @@ namespace Task_2.Models
     {
         public double totalMonetaryDonationsReceived;
         public int totalNumberOfGoodsReceived;
-
-
     }
+
 }
