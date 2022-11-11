@@ -26,30 +26,7 @@ namespace Task_2.Controllers
         public async Task<IActionResult> Index()
         {
             
-            moneyDonations = _context.MoneyDonations.ToList();
-            goodsDonations = _context.GoodsDonations.ToList();
-
-            Report rep;
-            double donation = 0;
-            int numGoods = 0;
-            for (int x = 0; x <= moneyDonations.Count - 1; x++)
-            {
-
-                donation += moneyDonations[x].donationAmount;
-            }
-
-            for (int y = 0; y <= goodsDonations.Count - 1; y++)
-            {
-                numGoods += goodsDonations[y].itemNumber;
-            }
-
-            rep = new Report();
-            rep.id = 1;
-            rep.totalMonetaryDonationsReceived = donation;
-            rep.totalNumberOfGoodsReceived = numGoods;
-            totalMoneyDonations.Add(rep);
-
-            return View(totalMoneyDonations);
+         
         }
 
        
